@@ -32,7 +32,7 @@
 
 			<!-- Planned Activites -->
 			<div class="section-title">
-				Planned Activities
+				Planned Activitiez
 			</div>
 			<?php /* Start the Loop */ $count=0; ?>
 			<?php
