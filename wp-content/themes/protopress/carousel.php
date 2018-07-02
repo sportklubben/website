@@ -16,7 +16,7 @@
 					  'post_status'     => 'publish',
 					  'posts_per_page'  => 3,
 					  'orderby'         => 'meta_value_num',
-					  'order'           => 'ASC',
+					  'order'           => 'DSC',
 					  'category_name'	=> 'featured',
 					);
 					$lastposts = get_posts( $args );
