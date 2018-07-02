@@ -14,7 +14,7 @@
 				<?php
 		    		$args = array(
 					  'post_status'     => 'publish',
-					  'posts_per_page'  => 3,
+					  'posts_per_page'  => 10,
 					  'orderby'         => 'meta_value_num',
 					  'order'           => 'DSC',
 					  'category_name'	=> 'featured',
