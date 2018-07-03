@@ -54,14 +54,9 @@
 			  	//Get categories for the event
 			  	$allCatMeta = get_the_category($id);
 			  	$allCat = (array_column($allCatMeta,'cat_name'));
-			  	
-			  	//echo 'Processing ' . $EventName . '<br>';
-
 			  	$continue = false;
 			  	foreach ($allCat as $cat) {
 			  		if ($cat != 'Event'){
-			  			//echo $EventName . ' will be skipped';
-			  			//echo ' because category is ' . $cat . '<br>';
 			  			$continue = true;
 			  		}
 			  	}
@@ -205,6 +200,15 @@
 		    				<div class="pop-image overlay">
 		    					<p>Event sign up will open in ' . $daysLeft . $dayPlural . '</p>
 		    				</div>';
+						}
+		    		?>
+
+		    		<!-- Check if the number of spots for the event has changed and update bookings in database -->
+		    		<?php
+		    			//Change spot for everyone with spotnumber higher than deleted booking
+						$query = "UPDATE EventSignUp SET AvailableSpots=$available_spots WHERE EventID=$postID AND AvailableSpots<>$available_spots";
+						if (!mysqli_query($con,$query)){
+							echo("Error description: " . mysqli_error($con));
 						}
 		    		?>
 

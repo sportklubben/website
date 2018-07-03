@@ -2,7 +2,7 @@
 	//debug messages
 	$deleteKey = $_GET["Key"];
 	//echo ('deleteKey = ' . $deleteKey . '<br>');
-	$availableSpots = $_GET["Available"];
+	//$availableSpots = $_GET["Available"];
 	//echo 'Available Spots = ' . $availableSpots . '<br>';
 	$EventResponsible = $_GET["EventResponsible"];
 	$EventResponsibleEmail = $_GET["EventResponsibleEmail"];
@@ -16,7 +16,7 @@
 	//Before deleting: get the spot number for the booking and move up all bookings that have a higher spot number. Then send an email to everyone with the booking that has been updated. (NEEDS TO BE ADDED)
 
 	//Get the spot number for the booking
-	$query = "SELECT SpotNumber, EventID FROM EventSignUp WHERE RandomKey = '$deleteKey'";	
+	$query = "SELECT SpotNumber,EventID,AvailableSpots FROM EventSignUp WHERE RandomKey = '$deleteKey'";	
 	if (!mysqli_query($con,$query)){
 		echo("Error description: " . mysqli_error($con));
 	}
@@ -24,6 +24,7 @@
 	$row = mysqli_fetch_assoc($result);
 	$SpotNumber = (int)$row['SpotNumber'];
 	$EventID = (int) $row['EventID'];
+	$availableSpots = (int) $row['AvailableSpots'];
 	//echo ('the spot number for this booking is: ' . $SpotNumber . '<br>');
 
 	//Change spot for everyone with spotnumber higher than deleted booking

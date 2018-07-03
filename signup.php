@@ -40,13 +40,12 @@
 		$EventStartTime = $_POST['EventStartTime'];
 		$EventLocation = $_POST['EventLocation'];
 
-
 		// Create connection
 		$con = mysqli_connect("localhost", "root", "password");
 		mysqli_connect("localhost", "root", "password") or die("not connected");
 		mysqli_select_db($con, "sportklubben") or die("no db found");
 
-		//Check if booking already exists for event
+		//Check if booking already exists for user and event
 		//ADD CODE!
 
 		//Check if user already has booked the event
@@ -59,8 +58,9 @@
 			header("Location: index.php" . "?Status=Existing"); /* Redirect browser */
 			exit();
 		}else{
+			
 			//Insert booking into database
-			$query = "INSERT INTO EventSignUp (UserName, UserEmail, EventID, SpotNumber, SignUpDate, PhoneNumber, RandomKey, OtherInfo) VALUES ('$UserName', '$UserEmail', '$EventID', '$SpotNumber', '$SignUpDate', '$PhoneNumber', '$RandomKey', '$OtherInfoValue')";
+			$query = "INSERT INTO EventSignUp (UserName, UserEmail, EventID, SpotNumber, SignUpDate, PhoneNumber, RandomKey, OtherInfo, AvailableSpots) VALUES ('$UserName', '$UserEmail', '$EventID', '$SpotNumber', '$SignUpDate', '$PhoneNumber', '$RandomKey', '$OtherInfoValue', '$AvailableSpots')";
 			if (!mysqli_query($con,$query)){
 				echo("Error description: " . mysqli_error($con));
 			}
@@ -115,7 +115,7 @@
 				    		Congratulations, your spot has been booked!
 				    	</h1>
 				    	<p>
-				    		Your spot for the $EventName event has been booked. If you would like to cancel your booking, <a href='$actual_link?Status=Deleted&Key=$RandomKey&Available=$AvailableSpots&EventResponsible=$EventResponsible&EventResponsibleEmail=$EventResponsibleEmail&EventName=$EventName'>Click here</a>. If you don't intend to attend the event, please make sure to cancel your booking as soon as possible so that others can sign up for the event. If you have any questions, contact $EventResponsible at $EventResponsibleEmail.
+				    		Your spot for the $EventName event has been booked. If you would like to cancel your booking, <a href='$actual_link?Status=Deleted&Key=$RandomKey&EventResponsible=$EventResponsible&EventResponsibleEmail=$EventResponsibleEmail&EventName=$EventName'>Click here</a>. If you don't intend to attend the event, please make sure to cancel your booking as soon as possible so that others can sign up for the event. If you have any questions, contact $EventResponsible at $EventResponsibleEmail.
 				    	</p>
 			    		<h3>
 			    			Event Information
@@ -143,7 +143,7 @@
 			    			You have been placed as number $BackUpSpot on the back-up list for the $EventName event
 		    			</h1>
 		    			<p>
-		    				At the moment, all of the spots for the $EventName event are booked. You have been placed as number $BackUpSpot on the back-up list. If you want to cancel your booking, click this link: <a href='$actual_link?Status=Deleted&Key=$RandomKey&Available=$AvailableSpots&EventResponsible=$EventResponsible&EventResponsibleEmail=$EventResponsibleEmail&EventName=$EventName'>Cancel booking</a>.<br><br>If anyone with a confirmed event spot cancels their booking, you will be moved up on the back-up list and we will inform you via email. If you are placed first on the back-up list you will be handed a spot for the event. If you have any questions, contact $EventResponsible at $EventResponsibleEmail.
+		    				At the moment, all of the spots for the $EventName event are booked. You have been placed as number $BackUpSpot on the back-up list. If you want to cancel your booking, click this link: <a href='$actual_link?Status=Deleted&Key=$RandomKey&EventResponsible=$EventResponsible&EventResponsibleEmail=$EventResponsibleEmail&EventName=$EventName'>Cancel booking</a>.<br><br>If anyone with a confirmed event spot cancels their booking, you will be moved up on the back-up list and we will inform you via email. If you are placed first on the back-up list you will be handed a spot for the event. If you have any questions, contact $EventResponsible at $EventResponsibleEmail.
 		    			</p>
 		    			<h3>
 			    			Event Information
