@@ -16,6 +16,7 @@
 <link href="/wp-content/themes/protopress/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="/wp-content/themes/protopress/flickity.css" media="screen">
 <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -59,9 +60,9 @@
 	<div class="mega-container" style="background-color: #eaeaea !important; margin-bottom: 40px;">
 		<?php
 			get_template_part('planned', 'activities');
-			/*get_template_part('reoccurring', 'activities');*/
+			get_template_part('reoccurring', 'activities');
 		?>
-	</div>	
+	</div>
 
 
 

@@ -7,9 +7,9 @@
 
 			<!-- Reoccurring Activites -->
 			<div class="section-title">
-				Reoccurring Activites
+				<h2>Reoccurring Activites</h2>
 			</div>
-			<p>When signing up for Sportklubben's reoccurring events, you will be signing up for an email list for the event you would like to attend. Before each event, the event responsible will send out an email which you will need to respond to in order to verify your spot.</p>
+			<h4 style="margin-bottom: 40px;">When signing up for Sportklubben's reoccurring events, you will be signing up for an email list for the event you would like to attend. Before each event, the event responsible will send out an email which you will need to respond to in order to verify your spot.</h4>
 			<?php /* Start the Loop */ $count=0; ?>
 			<?php
 	    		$args = array(

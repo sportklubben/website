@@ -222,7 +222,6 @@
 			    
 			    $mail->Body = "$body";
 
-
 			    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 			    $mail->send();
 			}

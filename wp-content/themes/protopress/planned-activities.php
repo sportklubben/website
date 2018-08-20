@@ -32,12 +32,12 @@
 
 			<!-- Planned Activites -->
 			<div class="section-title">
-				Planned Activities
+				<h2>Planned Activities</h2>
 			</div>
 			<?php /* Start the Loop */ $count=0; ?>
 			<?php
 	    		$args = array(
-		        	'numberposts' => 20,
+		        	'numberposts' => -1,
 					'post_status' => 'publish',
 					'meta_key' => 'event_start_date',
 					'orderby' => 'meta_value_num',
@@ -210,6 +210,7 @@
 						if (!mysqli_query($con,$query)){
 							echo("Error description: " . mysqli_error($con));
 						}
+						//ADD: if the number of spots have been increased, make sure to send email to people on the back-up list that the have gotten a spot.
 		    		?>
 
 					<div class="eventbox">
