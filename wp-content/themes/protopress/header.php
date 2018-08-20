@@ -60,7 +60,7 @@
 	<div class="mega-container" style="background-color: #eaeaea !important; margin-bottom: 40px;">
 		<?php
 			get_template_part('planned', 'activities');
-			get_template_part('reoccurring', 'activities');
+			//get_template_part('reoccurring', 'activities');
 		?>
 	</div>
 
